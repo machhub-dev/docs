@@ -1,0 +1,65 @@
+---
+title: MACHHUB Documentation
+description: The unified data fabric and Industrial IoT (IIoT) platform. Model data as Collections, automate with Processes, stream over MQTT, store history in the Historian, and build apps with the TypeScript SDK.
+template: splash
+hero:
+  tagline: The Unified Data Fabric for Industrial IoT. Own your data, model it as Collections, automate it with Processes, stream it over MQTT, and store its history in the Historian — then build apps on top with a fully type-safe SDK.
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Get started
+      link: /start-here/introduction/
+      icon: right-arrow
+      variant: primary
+    - text: SDK quickstart
+      link: /start-here/quickstart/
+      icon: rocket
+      variant: secondary
+    - text: View on GitHub
+      link: https://github.com/machhub-dev
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## What is MACHHUB?
+
+**MACHHUB** is a self-hostable **Industrial IoT (IIoT) platform** built around a
+**Unified Namespace (UNS)**. A single binary — **MACHHUB EDGE** — bundles a REST
+API, an MQTT broker, a messaging runtime, a database, and the web console, so you
+can run a complete data fabric on anything from a cloud VM to a Raspberry Pi on the
+factory floor.
+
+You model your data as **Collections**, organize live signals as **Tags** in the
+UNS, record time-series in the **Historian**, automate logic with serverless
+**Processes** (and visual **Flows**), and build front-end apps with the
+**`@machhub-dev/sdk-ts`** TypeScript SDK.
+
+<CardGrid stagger>
+  <Card title="Understand the concepts" icon="open-book">
+    Collections, the Unified Namespace, Tags, Historian, Processes, Flows, Domains,
+    authentication and permissions — start with the [core concepts](/concepts/architecture/).
+  </Card>
+  <Card title="Install & self-host" icon="setting">
+    Run MACHHUB EDGE on Linux or a Raspberry Pi, configure `.machhub.yaml`, and
+    bring up the services. See [Install & Self-Hosting](/install/overview/).
+  </Card>
+  <Card title="Use the console" icon="laptop">
+    Log in, switch domains, build collections, manage the UNS, view the Historian,
+    and configure users & groups. See [Using the Console](/console/overview/).
+  </Card>
+  <Card title="Build with the SDK" icon="seti:typescript">
+    Initialize the SDK, query collections, subscribe to tags, run processes, and
+    query history. Start with [SDK initialization](/sdk/initialization/).
+  </Card>
+</CardGrid>
+
+## Pick your path
+
+<CardGrid>
+  <LinkCard title="I'm an operator / admin" href="/console/overview/" description="Set up the platform and use the web console day-to-day." />
+  <LinkCard title="I'm an app developer" href="/start-here/quickstart/" description="Install the SDK and ship a front-end app in minutes." />
+  <LinkCard title="I'm integrating devices" href="/concepts/realtime/" description="Publish and subscribe to Tags over MQTT in the UNS." />
+  <LinkCard title="I'm automating logic" href="/processes/overview/" description="Write serverless Processes and visual Flows." />
+</CardGrid>

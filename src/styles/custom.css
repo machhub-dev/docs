@@ -1,0 +1,39 @@
+/* MACHHUB documentation theme.
+   Accent is an industrial indigo/blue that matches the console's Historian charts. */
+
+:root {
+  --sl-color-accent-low: #1b1f4b;
+  --sl-color-accent: #4f5bd5;
+  --sl-color-accent-high: #c7ccf7;
+
+  --sl-color-text-accent: #c7ccf7;
+  --mh-brand: #4f5bd5;
+}
+
+/* Light theme accents */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #dfe2fb;
+  --sl-color-accent: #3b46b8;
+  --sl-color-accent-high: #1b1f4b;
+  --sl-color-text-accent: #3b46b8;
+}
+
+/* Give Mermaid diagrams a little breathing room and center them. */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  margin: 1.25rem 0;
+}
+
+/* Placeholder image styling for screenshots that are awaiting capture. */
+.mh-shot {
+  display: block;
+  width: 100%;
+  border: 1px dashed var(--sl-color-gray-4);
+  border-radius: 0.5rem;
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-gray-2);
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
