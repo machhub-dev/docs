@@ -123,7 +123,7 @@ concept page covers how the data is stored and queried.
 - In the console, the UNS is the namespace editor where you build the tree, set
   access, attach forwarding rules, and toggle historization.
 - From the SDK, you read and write tag values by topic. See
-  [SDK Tags](/sdk/tags/) and [SDK Historian](/sdk/historian/).
+  [SDK Tags](/sdk/realtime/) and [SDK Historian](/sdk/historian/).
 
 <figure>
   <div class="mh-shot">📷 Screenshot to capture: <strong>The namespace tree editor showing folders, a tag, and its access/historize settings</strong></div>

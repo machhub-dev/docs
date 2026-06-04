@@ -74,7 +74,7 @@ API keys always begin with the **`mchx_`** prefix. Internally a key is
 clear, while the secret is hashed (see below). A key is created with a name, an
 expiration, and a set of [permissions](/concepts/authorization/) — so an integration
 can be granted exactly the access it needs. See
-[SDK API Keys](/sdk/api-keys/) for generating and using them.
+[SDK API Keys](/console/api-keys/) for generating and using them.
 
 ```mermaid
 flowchart TB

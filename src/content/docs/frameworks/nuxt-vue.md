@@ -360,7 +360,7 @@ keep the SDK out of any server execution path:
 - **Never** call the SDK in `asyncData`, `useAsyncData`, or `useFetch` — those run
   during SSR where `$sdk` is undefined. Use `onMounted` + a composable instead.
 - **Never** use the SDK in `server/` routes or Nitro server middleware.
-- When you need data on the server, call the [REST API](/api/) directly from a Nitro
+- When you need data on the server, call the [REST API](/api/overview/) directly from a Nitro
   server route, reading the developer key from the **server-only** runtime config.
 
 ```ts

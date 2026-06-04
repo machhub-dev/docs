@@ -213,7 +213,7 @@ flowchart LR
 :::caution[The SDK is client-side]
 `new SDK()` and `Initialize()` must run in the browser. Do not call `getSDK()` from
 Angular Universal server rendering. For server data, fetch the
-[REST API](/api/) directly — see [SSR notes](#6-ssr-notes) below.
+[REST API](/api/overview/) directly — see [SSR notes](#6-ssr-notes) below.
 :::
 
 ## 4. Reactive data helper
@@ -417,7 +417,7 @@ The SDK is **client-side only**. With Angular Universal / SSR, `new SDK()` and t
 
 - Initialize via `APP_INITIALIZER` (it runs in the browser when the app bootstraps on
   the client). Avoid calling `getSDK()` from server-only code paths.
-- When you genuinely need data on the server, call the [REST API](/api/) directly with
+- When you genuinely need data on the server, call the [REST API](/api/overview/) directly with
   `fetch` and an auth header, rather than reaching for the SDK.
 
 ```ts

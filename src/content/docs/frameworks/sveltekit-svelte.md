@@ -471,7 +471,7 @@ The SDK is **client-side only**. SvelteKit renders on the server by default, so:
   before calling `initializeSDK()` / `getSDK()`.
 - For genuine server-side data and route protection, **do not** use the SDK — use a
   server-only context like `hooks.server.ts` or a `+page.server.ts` and call the
-  [REST API](/api/) directly.
+  [REST API](/api/overview/) directly.
 
 Use `hooks.server.ts` for server-side route guards (it runs on every request, on the
 server, where the SDK is unavailable). Check an auth cookie and `redirect`:

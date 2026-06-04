@@ -442,7 +442,7 @@ export function useAuth() {
 
 The SDK is **client-side only**, so it cannot run in Server Components, Server Actions,
 Route Handlers, or `middleware.ts`. For server-side work, call the
-[REST API](/api/) directly with `fetch` and revalidate.
+[REST API](/api/overview/) directly with `fetch` and revalidate.
 
 ### Server Components and Server Actions: fetch + revalidatePath
 

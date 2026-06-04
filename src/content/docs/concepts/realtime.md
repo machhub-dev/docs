@@ -47,7 +47,7 @@ with live values you simply:
   receive every update.
 
 The SDK wraps this pub/sub so you work in terms of tags rather than raw MQTT. See
-[SDK Tags](/sdk/tags/).
+[SDK Tags](/sdk/realtime/).
 
 ## Discovering the broker: `GET /machhub/info`
 
