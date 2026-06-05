@@ -5,6 +5,14 @@ sidebar:
   order: 11
 ---
 
+:::note[Proprietary software]
+MACHHUB EDGE — the platform itself (the REST API, runtimes, broker, and web console) —
+is **commercial, proprietary software** developed by Intellogic Technology. It is
+**not open source**, and running it requires a valid license. (The publicly available
+[AI agent skills](/skills/overview/) and this documentation are separate from the
+licensed platform.)
+:::
+
 MACHHUB EDGE uses **node-locked licensing**: a license is bound to the specific machine
 it runs on, identified by hardware characteristics (such as the CPU). This fits the
 edge deployment model, where each device runs its own EDGE instance.

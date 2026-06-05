@@ -29,8 +29,10 @@ A row of four cards summarizes the instance. The counts are fetched from the API
   <div class="mh-shot">📷 Screenshot to capture: <strong>Home dashboard</strong> (`/home`) — the four stat cards (Users, Groups, Tags, License status). See <a href="/reference/shot-list/">shot-list</a> (#1).</div>
 </figure>
 
-Below the cards are two placeholder panels — **System Warnings** and **Report an
-issue** — that are reserved for future use and have no content in this build.
+Below the cards are two panels: a **Join Our Community!** card that links to the
+MACHHUB Discord, and a working **Report an issue** form (subject + description) that
+submits feedback to the platform. The **License Status** card also shows a **TRIAL**
+badge when running on a trial license.
 
 ## Where to go next
 

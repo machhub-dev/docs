@@ -60,15 +60,22 @@ The sidebar groups the platform into sections:
 | --- | --- | --- |
 | **Home** | dashboard | See counts (users, groups, tags) and license status. |
 | **Applications** *(admin domain)* | list | Create and manage Application domains. |
-| **Account** | Users, Groups, API Keys | Manage people, permissions, and machine credentials. |
-| **Namespace** | Manage, Historian, Upstreams | Edit the UNS, view history, bridge brokers. |
+| **Dashboard** | no-code dashboards | Build and view widget dashboards. |
+| **Flows** | Node-RED | Open the embedded Node-RED flow editor. |
+| **Processes** | serverless functions | Author and run Python/TypeScript processes. |
+| **Account** | Users, Groups, Permissions, Developer Keys | Manage people, permissions, and machine credentials. |
+| **Namespace** | Manage, Historian | Edit the UNS and view history. |
+| **Connections** | Upstreams, Downstreams, MQTT | Bridge to other brokers and inspect MQTT clients. |
+| **Integration** | Data Source, SECS/GEM | Connect external data sources and equipment. |
 | **Database** | Collections | Build schemas and edit records. |
-| **Settings** | General, Gateway, License | Device settings and licensing. |
+| **Settings** | General, Gateway, Firewall, Network, License, Backups, Storage, Log | Device, network, backup, and licensing settings. |
 | **Support** | Logs | Inspect server logs. |
 
 :::note[What you see depends on your domain]
-In the **admin** domain you see all sections (plus Applications). In an
-**Application** domain the navigation focuses on **Account** and **Namespace**.
+In the **admin** domain you see all sections (plus Applications, Settings, and
+Support). In an **Application** domain the navigation focuses on **Account**,
+**Namespace**, **Connections**, **Integration**, and **Database** (the MQTT page is
+hidden outside the admin domain).
 :::
 
 ### User menu

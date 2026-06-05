@@ -48,7 +48,7 @@ The page is split into two resizable panes:
 
 ### Field types
 
-The **Add Field** picker offers eight types:
+The **Add Field** picker offers ten types:
 
 | Type | Use it for |
 | --- | --- |
@@ -59,11 +59,14 @@ The **Add Field** picker offers eight types:
 | **DateTime** | A date, picked from a calendar. |
 | **File** | An uploaded file (stored inline). |
 | **JSON** | An arbitrary JSON object, edited in a code box. |
+| **Rich Editor** | Formatted rich-text content. |
+| **Enum** | A value chosen from a fixed list of options. |
 | **Relation** | A reference to a record in another collection. |
 
 For a **Relation** field, a *Select a collection* dropdown appears next to the field
 name — choose which collection it points at. (The `id` field's *record* type is the
-built-in primary key and is not one of the eight pickable types.)
+built-in primary key and is not one of the ten pickable types.) You can also define
+**Indexes** (unique or full-text) on the collection from the same form.
 
 Saving sends the schema to `POST /api/collection`.
 
@@ -72,18 +75,10 @@ Saving sends the schema to `POST /api/collection`.
 Select a collection in the left pane to load its records into the table on the right.
 Each column renders according to its field type — for example, booleans show as a
 checkmark, dates are formatted, JSON is stringified, and relations show the related
-record's ID. Use the **refresh** button to re-fetch the data. Each row has a delete
-button to remove that record.
+record's ID. Use the **refresh** button to re-fetch the data.
 
-:::caution[Not yet available]
-Two record-management features are **planned but not wired up** in this build:
-
-- **Editing an existing record** — the row's pencil button opens nothing yet.
-- **The collection search box** — the *Search collections…* field in the left pane is
-  a placeholder and does not filter the list.
-
-Use **Add Record** and **delete** to manage records for now.
-:::
+Each row has a **pencil** button to edit the record (it opens the same form,
+pre-filled) and a **trash** button to delete it.
 
 ## Add a record
 

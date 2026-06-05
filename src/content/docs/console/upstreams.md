@@ -7,10 +7,10 @@ sidebar:
 
 **Upstreams** bridge your MACHHUB broker to another MQTT broker, forwarding parts of
 your [Unified Namespace](/concepts/unified-namespace/) for edge-to-cloud or
-site-to-site data flow. Manage them under **Namespace → Upstreams**.
+site-to-site data flow. Manage them under **Connections → Upstreams**.
 
 <figure>
-  <div class="mh-shot">📷 Screenshot to capture: <strong>Upstreams list at /namespace/upstreams</strong> — a bridge with its on/off toggle.</div>
+  <div class="mh-shot">📷 Screenshot to capture: <strong>Upstreams list at /connections/upstreams</strong> — a bridge with its on/off toggle.</div>
 </figure>
 
 ## Create an upstream

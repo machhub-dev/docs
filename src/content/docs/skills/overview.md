@@ -1,6 +1,6 @@
 ---
 title: AI Agent Skills
-description: The official MACHHUB agent skills — install them into GitHub Copilot, Cursor, or Claude to scaffold MACHHUB code with 57 production-ready templates.
+description: The official MACHHUB agent skills — install them into GitHub Copilot, Cursor, or Claude to scaffold MACHHUB code with 55 production-ready templates.
 sidebar:
   order: 1
 ---
@@ -20,7 +20,7 @@ integration, config formats) in a form an agent can apply directly — so asking
   authorization, realtime, file handling, processes, and advanced features.
 - **Framework skills** — Angular, Next.js/React, Nuxt/Vue, and SvelteKit/Svelte.
 - **Config-format skills** — Collection JSON and Permission JSON generation.
-- **57 templates** — ready-to-copy `.ts`/`.tsx`/`.vue`/`.svelte` files.
+- **55 templates** — ready-to-copy `.ts`/`.tsx`/`.vue`/`.svelte`/`.py` files.
 
 ## Install the skills
 

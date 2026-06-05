@@ -19,6 +19,7 @@ table by name.
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `GET` | `/machhub/:table_name/all` | List all records in a table (supports list query params) |
+| `GET` | `/machhub/:table_name/count` | Count records in a table |
 | `GET` | `/machhub/:id` | Get one record by its full [RecordID](/sdk/record-id/) |
 | `POST` | `/machhub/:table_name` | Create a record in a table |
 | `PUT` | `/machhub/:id` | Update a record by its full RecordID |
@@ -76,11 +77,11 @@ Domain: domains:acme
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `POST` | `/machhub/flow/execute/:id` | Execute a [Node-RED Flow](/concepts/processes-and-flows/) by ID with a JSON payload |
+| `POST` | `/machhub/flow/execute/name/:name` | Execute a [Node-RED Flow](/concepts/processes-and-flows/) by name with a JSON payload |
 
-The JSON request body is passed to the flow as its payload and echoed back in the
-response. (Flows are Node-RED pipelines — distinct from
-[Processes](/processes/overview/).)
+The JSON request body is passed to the flow as its payload; the response is
+`{ "success": true, "msg": <flow result> }`. (Flows are Node-RED pipelines — distinct
+from [Processes](/processes/overview/).)
 
 ## Function execution
 
@@ -93,7 +94,7 @@ POST /machhub/function/execute
 Content-Type: application/json
 Domain: domains:acme
 
-{ "function_type": "python", "function_name": "summarize", "payload": { "window": "1h" } }
+{ "language": "python", "name": "summarize", "payload": { "window": "1h" } }
 ```
 
 :::note[Invoking Processes]
@@ -103,22 +104,33 @@ processes), described in [Invoking a Process](/processes/invoking/). Do not conf
 them with the function-execute endpoint above.
 :::
 
-## Designer uploads
+## Designer endpoints
 
-The [MACHHUB Designer](/designer/overview/) VS Code extension uploads code bundles
-through these multipart endpoints (form field `file`).
+The [MACHHUB Designer](/designer/overview/) VS Code extension manages and deploys
+domain assets through the `/machhub/designer/*` group:
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `POST` | `/machhub/designer/python/upload` | Upload a Python function bundle |
-| `POST` | `/machhub/designer/golang/upload` | Upload a Go function bundle |
-| `POST` | `/machhub/designer/typescript/upload` | Upload a TypeScript function bundle |
+| `GET` | `/machhub/designer/health` | Designer connectivity / health check |
+| `GET` | `/machhub/designer/collections` | List collection schemas for the domain |
+| `POST` | `/machhub/designer/collections` | Create a collection |
+| `PUT` | `/machhub/designer/collections` | Update a collection |
+| `GET` | `/machhub/designer/processes` | List processes for the domain |
+| `POST` | `/machhub/designer/processes` | Create / deploy a process (Python or TypeScript) |
+| `PUT` | `/machhub/designer/processes` | Update a process |
+| `POST` | `/machhub/designer/flows` | Upload Node-RED flows |
+| `GET` | `/machhub/designer/flows/download` | Download the current Node-RED flows |
+| `POST` | `/machhub/designer/upload/application` | Upload an application bundle (multipart `file`) |
+| `GET` | `/machhub/designer/tags` | List tags (and `/tags/historized` for historized tags) |
+
+Processes are authored in **Python or TypeScript** only — see
+[Authoring Processes](/processes/overview/).
 
 ## Device & UNS info
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/machhub/info` | Device name, UNS base path, MQTT/WS bind info, storage, and version |
+| `GET` | `/machhub/` | Device name, UNS base path, MQTT/WS bind info, storage, and version |
 
 The response reports the device identity and how to reach the embedded MQTT broker:
 

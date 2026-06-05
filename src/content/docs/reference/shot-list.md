@@ -55,7 +55,6 @@ authored as [Mermaid](/reference/editing-docs/#diagrams-mermaid) and need no cap
 edit them inline in the relevant pages.
 
 :::note[Do not screenshot these]
-Some console areas are incomplete in the current build (signup, API-key generation,
-gateway settings, the logs button, collection record-editing). Avoid featuring them in
-screenshots until they ship.
+Some console areas are still incomplete in the current build (self-service signup).
+Avoid featuring them in screenshots until they ship.
 :::

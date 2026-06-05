@@ -17,7 +17,7 @@ machhub start -c "/etc/machhub/.machhub.yaml"
 ```yaml
 app:
   host: 0.0.0.0
-  port: 80                # REST API port
+  port: 6188              # REST API / console port (default)
   mochi:                  # embedded MQTT broker
     tcp_port: 1883        # MQTT over TCP
     ws_port: 180          # MQTT over WebSocket (for browsers)
@@ -71,13 +71,13 @@ logging:
 
 | Setting | Notes |
 | --- | --- |
-| `app.port` | The REST API / console port (commonly `80`). |
+| `app.port` | The REST API / console port (default `6188`). |
 | `app.mochi.*` | The embedded MQTT broker's TCP and WebSocket ports. Browsers connect over WebSocket. |
 | `app.nats.port` | The embedded NATS server, used to dispatch Process execution. |
 | `auth.ttl` | JWT lifetime in hours. There are **no refresh tokens** — clients re-login on expiry. |
 | `auth.priv_key` / `pub_key` / `kid` | The ed25519 keypair used to sign and verify JWTs. |
 | `storage.uri` | SurrealDB RPC endpoint (internal). |
-| `data_storage` | Configured for time-series; note the Historian is currently implemented on SurrealDB in this build. |
+| `data_storage` | Legacy time-series setting (e.g. `use: questdb`). It is **not used** in current builds — the Historian is implemented on SurrealDB — and can be left at its default. |
 
 ## Environment variable overrides
 
@@ -89,6 +89,8 @@ keys in particular can be supplied from the environment instead of the file:
 | `MCH_AUTH_PRIV_KEY` | `auth.priv_key` |
 | `MCH_AUTH_PUB_KEY` | `auth.pub_key` |
 | `MCH_AUTH_KEYID` | `auth.kid` |
+| `MCH_SURREAL_USERNAME` | `storage.credentials.username` |
+| `MCH_SURREAL_PASSWORD` | `storage.credentials.password` |
 
 :::tip
 Keep secrets (the auth private key, database credentials) out of the YAML file in
