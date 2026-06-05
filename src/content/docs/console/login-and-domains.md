@@ -72,8 +72,9 @@ a menu that groups domains under two headings:
 - **Application** — any [Application domains](/concepts/domains/) you have created.
 
 Selecting a domain writes its ID to `localStorage['x-machhub-domain']`, so every
-subsequent API request carries the matching `Domain` header. The menu also has an
-**Add Application** action for creating a new Application domain.
+subsequent API request carries the matching `Domain` header. Each domain row also has
+a **star** action to set it as your default domain, and the menu has an **Add Domain**
+action for creating a new Application domain.
 
 <figure>
   <div class="mh-shot">🎞️ GIF to record: <strong>Switch domain</strong> — open the domain switcher → pick an Application domain → the sidebar nav narrows. See shot-list (Console GIF #9).</div>
@@ -85,12 +86,14 @@ The set of sidebar sections depends on the active domain:
 
 | Active domain | Sections shown |
 | --- | --- |
-| **MACHHUB / Administrator** (`domains:machhub_admin`) | **Home**, **Applications**, plus **Account**, **Namespace**, **Database**, **Support**, and **Settings**. |
-| Any **Application** domain | **Home**, plus **Account** and **Namespace** only. |
+| **MACHHUB / Administrator** (`domains:machhub_admin`) | **Home**, **Applications**, **Dashboard**, **Flows**, **Processes**, plus **Account**, **Namespace**, **Connections**, **Integration**, **Database**, **Settings**, and **Support**. |
+| Any **Application** domain | **Home**, **Dashboard**, **Flows**, **Processes**, plus **Account**, **Namespace**, **Connections**, **Integration**, and **Database** (the MQTT page is hidden). |
 
-In other words, the platform-wide sections (Database, Support, Settings) and the
-**Applications** entry appear only in the admin domain; Application domains focus on
-managing **Account** (users, groups, API keys) and the **Namespace**.
+In other words, the **Applications** entry and the platform-wide **Settings** and
+**Support** sections appear only in the admin domain. Application domains still expose
+**Account** (users, groups, permissions, developer keys), the **Namespace**,
+**Connections**, **Integration**, and **Database** — only the admin-only MQTT page is
+hidden.
 
 <figure>
   <div class="mh-shot">📷 Screenshot to capture: <strong>Sidebar + domain switcher</strong> — collapsed vs expanded sidebar, switcher open (System vs Application). See shot-list (#7).</div>

@@ -9,7 +9,9 @@ The `/api/*` surface is the **management plane** used by the web console: domain
 users, groups, API keys, the [Unified Namespace](/concepts/unified-namespace/),
 [Collection](/concepts/collections/) schemas, settings, and licensing. Most routes
 require authentication and read the [`Domain`](/api/data-plane/#the-domain-header)
-header; the home and license routes are reachable before login.
+header. Only `GET /api/home` is reachable before login; license status and trial
+activation require authentication but skip the per-feature permission and license
+checks.
 
 :::caution[Permission enforcement varies in the current build]
 Authentication (`VerifyAuth`) is applied to the `/api/*` group, but several
@@ -27,15 +29,19 @@ deployment.
 
 ## License
 
-These routes are reachable **before** authentication (needed during first-run
-activation).
+`GET /api/license` and `POST /api/license/activate/trial` require authentication but
+skip the permission/license checks; the remaining routes are permission-gated. See
+[Licensing](/concepts/licensing/) for the activation flow.
 
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `GET` | `/api/license` | Current license status |
-| `POST` | `/api/license/activate` | Generate an activation-data string from a license key |
-| `GET` | `/api/license/activate/trial` | Generate a trial activation-data string |
-| `POST` | `/api/license/upload` | Upload and activate a signed `.mpl` license file (multipart `file`) |
+| `POST` | `/api/license/activate/trial` | Activate a trial license |
+| `POST` | `/api/license/generate/activation` | Generate an activation request (from your key + machine fingerprint) |
+| `POST` | `/api/license/generate/deactivation` | Generate a deactivation request |
+| `POST` | `/api/license/activate` | Upload and activate a signed `.mpl` license file |
+| `POST` | `/api/license/deactivate` | Deactivate the license |
+| `POST` | `/api/license/deactivate/trial` | Deactivate the trial license |
 
 ## Domains & applications
 
@@ -51,9 +57,9 @@ activation).
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/api/group` | List all groups |
+| `GET` | `/api/group` | List the domain's groups with their users |
 | `POST` | `/api/group` | Create a group |
-| `GET` | `/api/group/:domainID` | List a domain's groups with their users |
+| `PATCH` | `/api/group` | Edit a group |
 | `GET` | `/api/group/:id` | Get one group |
 | `DELETE` | `/api/group/:groupID` | Delete a group |
 
@@ -65,8 +71,7 @@ activation).
 | `POST` | `/api/users` | Create a user |
 | `GET` | `/api/users/:id` | Get one user |
 | `POST` | `/api/users/:id/password-reset` | Reset a user's password |
-| `PATCH` | `/api/users/edit` | Edit a user's profile fields |
-| `PATCH` | `/api/users/edit-password` | Change a user's password (verifies the old password) |
+| `PATCH` | `/api/users` | Edit a user's profile fields |
 | `DELETE` | `/api/users/:userID` | Delete a user |
 | `GET` | `/api/user/image` | Get the current user's image |
 | `GET` | `/api/users/image/:id` | Get a specific user's image |
@@ -76,8 +81,8 @@ activation).
 | Method | Path | Purpose |
 | --- | --- | --- |
 | `POST` | `/api/api-key/generate` | Generate a new API key (returns the `mchx_` token once) |
-| `GET` | `/api/api-key/get-all` | List API keys the caller may see |
-| `DELETE` | `/api/api-key/delete` | Delete an API key |
+| `GET` | `/api/api-key/` | List the domain's API keys |
+| `DELETE` | `/api/api-key/delete/:id` | Delete an API key |
 
 Generating a key takes a name, optional expiration, description, and the
 feature/action/scope permissions to embed:
@@ -101,14 +106,13 @@ The full key (prefix `mchx_`) is returned in the `token` field and shown **once*
 present it on later requests via `X-Machhub-Api-Key`. See
 [Authentication](/api/authentication/).
 
+:::note[Current build]
+Generated keys currently receive **full access within their domain** regardless of
+the `features` permissions supplied in the request. Treat every API key as a
+domain-wide credential and scope it by domain.
+:::
+
 ## Unified Namespace (UNS)
-
-### Settings
-
-| Method | Path | Purpose |
-| --- | --- | --- |
-| `POST` | `/api/uns/` | Get UNS settings |
-| `POST` | `/api/uns/save` | Save UNS / MQTT bridge settings |
 
 ### Namespace
 
@@ -132,10 +136,10 @@ present it on later requests via `X-Machhub-Api-Key`. See
 
 | Method | Path | Purpose |
 | --- | --- | --- |
-| `GET` | `/api/uns/namespace/historize/list` | List historized tags |
-| `PATCH` | `/api/uns/namespace/historize` | Query historized data for a topic/range |
-| `POST` | `/api/uns/namespace/historize` | Update a tag's historize configuration |
-| `POST` | `/api/uns/namespace/historize/export` | Export historized data (topics, date range, timezone) |
+| `PUT` | `/api/uns/historize/list` | List historized tags |
+| `PATCH` | `/api/uns/historize` | Query historized data for a topic/range |
+| `POST` | `/api/uns/historize` | Update a tag's historize configuration |
+| `POST` | `/api/uns/historize/export` | Export historized data (topics, date range, timezone) |
 
 ### Upstreams
 

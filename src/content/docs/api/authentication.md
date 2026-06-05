@@ -89,14 +89,17 @@ The permission endpoint reports the caller's effective access to a
 GET /auth/permission/action/feature/users/scope/all
 ```
 
-The response reports the granted action:
+The response reports the list of actions the caller is granted for that
+feature/scope:
 
 ```json
-{ "action": "read-write" }
+{ "actions": ["read", "create", "update"] }
 ```
 
-`action` is one of `read-write`, `read`, or `""` (no access). The endpoint always
-returns `200 OK`; inspect `action` to decide what the caller may do.
+`actions` is an array of the granted action verbs (an empty array `[]` means no
+access). Actions are the domain's configured verbs — built-ins such as `read` and
+`read-write`, plus any custom actions (e.g. `export`). The endpoint always returns
+`200 OK`; inspect `actions` to decide what the caller may do.
 
 ## Related
 

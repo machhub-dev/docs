@@ -10,7 +10,7 @@ at a development configuration.
 
 ## Prerequisites
 
-- **Go 1.22+** (the project builds with current Go toolchains).
+- **Go 1.24+** (the project builds with current Go toolchains).
 - **SurrealDB** for the datastore.
 
 ## Start the server
@@ -39,7 +39,7 @@ RPC port the config expects (`ws://localhost:7018/rpc`).
 ```mermaid
 flowchart LR
   Go["go run . start"] -->|ws RPC| DB[("SurrealDB\n:7018")]
-  Go -->|REST :80| Browser["Web Console"]
+  Go -->|REST :6188| Browser["Web Console"]
   Go -->|MQTT :1883 / WS| Devices["Devices / Console"]
 ```
 

@@ -23,7 +23,7 @@ flowchart LR
   end
 
   STORE[("SurrealDB v2\nstore + Historian")]
-  RUNTIMES["Language runtimes\n(Python / TypeScript / Go)"]
+  RUNTIMES["Language runtimes\n(Python / TypeScript)"]
 
   REST <--> STORE
   BROKER --> STORE

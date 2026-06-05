@@ -80,10 +80,11 @@ def execute(context):
 ## Deploying a process
 
 You author and deploy processes with the [MACHHUB Designer](/designer/overview/) VS
-Code extension, which uploads your code bundle to the platform. Under the hood this
-uses the upload endpoints (for example, `POST /machhub/designer/typescript/upload`).
-Each domain gets its own isolated worker with its own dependencies (`pip` / `npm`),
-and the process **version** auto-increments on each deploy.
+Code extension, which sends your code to the platform. Under the hood this uses the
+designer process endpoints — `POST /machhub/designer/processes` to create and
+`PUT /machhub/designer/processes` to update. Each domain gets its own isolated worker
+with its own dependencies (`pip` / `npm`), and the process **version**
+auto-increments on each deploy.
 
 ## Invoking a process
 

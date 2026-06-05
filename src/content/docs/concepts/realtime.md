@@ -49,11 +49,11 @@ with live values you simply:
 The SDK wraps this pub/sub so you work in terms of tags rather than raw MQTT. See
 [SDK Tags](/sdk/realtime/).
 
-## Discovering the broker: `GET /machhub/info`
+## Discovering the broker: `GET /machhub/`
 
-Clients do not hard-code broker ports. They call the unprotected **`GET /machhub/info`**
-endpoint, which reports the device name and the broker bind information so a client
-can connect correctly:
+Clients do not hard-code broker ports. They call the data-plane root **`GET /machhub/`**
+endpoint (with the SDK's developer key), which reports the device name and the broker
+bind information so a client can connect correctly:
 
 ```jsonc
 {
@@ -76,7 +76,7 @@ The `mqtt` and `ws` ports mirror your `app.mochi.tcp_port` / `app.mochi.ws_port`
 config. The TLS listeners (`mqtts` / `wss`) are reported but disabled by default.
 
 :::tip
-The SDK uses `GET /machhub/info` during initialization so your code never needs to
+The SDK calls `GET /machhub/` during initialization so your code never needs to
 know the broker's port ahead of time. See [SDK Initialization](/sdk/initialization/).
 :::
 
