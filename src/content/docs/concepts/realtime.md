@@ -7,7 +7,7 @@ sidebar:
 
 MACHHUB is realtime by default. The platform embeds an MQTT broker
 ([mochi-mqtt](https://github.com/mochi-mqtt/server)) directly inside the
-[MACHHUB EDGE binary](/concepts/architecture/), and it is the substrate that carries
+[MACHHUB Platform binary](/concepts/architecture/), and it is the substrate that carries
 every [tag](/concepts/unified-namespace/) value as it changes.
 
 ## The embedded broker
@@ -26,7 +26,7 @@ because browsers cannot open raw TCP sockets.
 
 ```mermaid
 flowchart LR
-  subgraph EDGE["MACHHUB EDGE"]
+  subgraph EDGE["MACHHUB Platform"]
     Broker["Embedded MQTT broker (mochi)"]
   end
   Dev["Device / PLC gateway"] -- "MQTT TCP :1883" --> Broker

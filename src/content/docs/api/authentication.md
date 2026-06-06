@@ -43,7 +43,7 @@ Bad credentials return `401 Unauthorized` with a plain-text body
 ```mermaid
 sequenceDiagram
   participant App
-  participant API as MACHHUB EDGE
+  participant API as MACHHUB Platform
   App->>API: POST /auth/login { username, password }
   API-->>App: { success: true, tkn }
   App->>API: GET /machhub/products/all\nAuthorization: Bearer tkn

@@ -142,7 +142,7 @@ flowchart TB
     PB["Python worker (venv)"]
     TB["TypeScript worker (node_modules)"]
   end
-  API["MACHHUB EDGE"] <-->|NATS| PA
+  API["MACHHUB Platform"] <-->|NATS| PA
   API <-->|NATS| TA
   API <-->|NATS| PB
   API <-->|NATS| TB

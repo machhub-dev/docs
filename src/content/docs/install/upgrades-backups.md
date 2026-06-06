@@ -1,16 +1,16 @@
 ---
 title: Upgrades & backups
-description: Building MACHHUB EDGE for production (including Raspberry Pi / ARM64), the systemd services, and backing up your data.
+description: Building MACHHUB Platform for production (including Raspberry Pi / ARM64), the systemd services, and backing up your data.
 sidebar:
   order: 5
 ---
 
-This page covers operating an EDGE installation: building for deployment, the runtime
+This page covers operating a MACHHUB Platform installation: building for deployment, the runtime
 services, and protecting your data.
 
 ## Production build
 
-EDGE is built as a single binary. The repository's build script produces a
+The Platform is built as a single binary. The repository's build script produces a
 deployment archive, including for **ARM64** targets such as a Raspberry Pi:
 
 ```bash
@@ -32,11 +32,11 @@ installers for SurrealDB and Node-RED).
 
 ## Services
 
-In a packaged install, EDGE and its datastore run as `systemd` units:
+In a packaged install, the Platform and its datastore run as `systemd` units:
 
 | Service | Role |
 | --- | --- |
-| `machhub.service` | the EDGE binary (`/usr/bin/machhub start`) |
+| `machhub.service` | the MACHHUB Platform binary (`/usr/bin/machhub start`) |
 | `surreal.service` | the SurrealDB datastore |
 
 Manage them with the usual tools:
@@ -58,20 +58,20 @@ manual migration step — but always back up first.
 
 ```mermaid
 flowchart LR
-  EDGE["MACHHUB EDGE"] --> DB[("SurrealDB data\n(collections, history,\nusers, namespaces)")]
+  EDGE["MACHHUB Platform"] --> DB[("SurrealDB data\n(collections, history,\nusers, namespaces)")]
   DB --> BK["Backup archive\n(stop service · copy data · restart)"]
 ```
 
 All persistent data — collections and records, the Historian time-series, users,
 groups, and the Unified Namespace — lives in **SurrealDB**. To back up:
 
-1. Stop (or quiesce) the EDGE service.
+1. Stop (or quiesce) the Platform service.
 2. Copy the SurrealDB data directory.
 3. Restart the service.
 
 :::caution[Verify for your deployment]
 Exact paths, the SurrealDB data location, and update steps depend on how you packaged
-EDGE. Confirm them against your install before relying on a backup/restore procedure,
+the Platform. Confirm them against your install before relying on a backup/restore procedure,
 and test a restore on a non-production machine.
 :::
 

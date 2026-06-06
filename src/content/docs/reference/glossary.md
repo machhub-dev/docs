@@ -7,7 +7,7 @@ sidebar:
 
 Concise definitions of the terms used throughout these docs.
 
-- **EDGE** — *MACHHUB EDGE*, the single Go binary that runs the whole platform (REST
+- **MACHHUB Platform** — the single Go binary that runs the whole platform (REST
   API, MQTT broker, NATS runtime, datastore, and web console). See [Architecture](/concepts/architecture/).
 - **Domain** — a tenant/workspace. Data, users, groups, and namespaces belong to a
   domain. The built-in admin domain is `domains:machhub_admin`. See [Domains](/concepts/domains/).

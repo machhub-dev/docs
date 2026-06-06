@@ -1,16 +1,16 @@
 ---
 title: Quickstart
-description: Go from zero to a working MACHHUB app — install the SDK, connect to MACHHUB EDGE, create a collection, write a record, and subscribe to a live tag.
+description: Go from zero to a working MACHHUB app — install the SDK, connect to MACHHUB Platform, create a collection, write a record, and subscribe to a live tag.
 sidebar:
   order: 2
 ---
 
 This quickstart takes you from nothing to a working MACHHUB app in a few minutes.
-You will connect to a running **MACHHUB EDGE**, create a **Collection**, write a
+You will connect to a running **MACHHUB Platform**, create a **Collection**, write a
 record, and subscribe to a live **Tag**.
 
 :::note[Prerequisites]
-- A reachable **MACHHUB EDGE** instance (see [Install & Self-Hosting](/install/overview/) to run one locally).
+- A reachable **MACHHUB Platform** instance (see [Install & Self-Hosting](/install/overview/) to run one locally).
 - **Node.js 18+** and a package manager (`npm`, `pnpm`, or `yarn`).
 - A MACHHUB **username/password** (the console bootstraps an admin user on first run).
 :::

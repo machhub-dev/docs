@@ -65,7 +65,7 @@ decide what flows over the bridge and under which topic it appears remotely.
 
 ```mermaid
 flowchart LR
-  subgraph Edge["MACHHUB EDGE (edge)"]
+  subgraph Edge["MACHHUB Platform (edge)"]
     UNS["UNS\nPlant1/LineA/Temperature"]
     Up["Upstream\n(protocol/host/port/path)"]
     UNS -- "forwarding rule\nTopic -> UpstreamTopic" --> Up
@@ -82,9 +82,9 @@ sites through one namespace:
 
 ```mermaid
 flowchart TB
-  E1["EDGE — Site A"] -- "upstream" --> C[("Central broker / cloud")]
-  E2["EDGE — Site B"] -- "upstream" --> C
-  E3["EDGE — Site C"] -- "upstream" --> C
+  E1["MACHHUB — Site A"] -- "upstream" --> C[("Central broker / cloud")]
+  E2["MACHHUB — Site B"] -- "upstream" --> C
+  E3["MACHHUB — Site C"] -- "upstream" --> C
   C --> Apps["Central dashboards,\nanalytics, SCADA"]
 ```
 

@@ -7,7 +7,7 @@ sidebar:
 
 A **Domain** is a tenant in MACHHUB — an isolated workspace with its own users,
 groups, Unified Namespace, collections, and settings. Every request runs *inside* a
-domain, and a single MACHHUB EDGE instance can host many of them.
+domain, and a single MACHHUB Platform instance can host many of them.
 
 ## The default admin domain
 
@@ -96,7 +96,7 @@ from colliding with another's.
 
 ```mermaid
 flowchart TB
-  subgraph EDGE["MACHHUB EDGE (one instance)"]
+  subgraph EDGE["MACHHUB Platform (one instance)"]
     direction LR
     subgraph D1["domains:machhub_admin (system)"]
       C1["domains:machhub_admin.production"]

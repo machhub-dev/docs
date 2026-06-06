@@ -59,7 +59,7 @@ On the data plane, the active domain also name-prefixes your tables
 ```mermaid
 sequenceDiagram
   participant App
-  participant API as MACHHUB EDGE
+  participant API as MACHHUB Platform
   App->>API: POST /auth/login { username, password }
   API-->>App: { success: true, tkn }
   App->>API: GET /machhub/products/all\nAuthorization: Bearer tkn\nDomain: domains:acme
@@ -87,7 +87,7 @@ The SDK builds these for you via its fluent query API — see
 :::caution[Security note]
 In the current build, much of the `/machhub/*` data plane is **not** auth-gated by
 default, and several management routes have their permission checks disabled. Treat
-network exposure carefully and put EDGE behind appropriate network controls. Confirm
+network exposure carefully and put the Platform behind appropriate network controls. Confirm
 the enforcement state for your deployment.
 :::
 

@@ -1,13 +1,13 @@
 ---
 title: Install & Self-Hosting Overview
-description: How to run MACHHUB EDGE — requirements, what gets installed, the runtime services, and where to go for configuration and first login.
+description: How to run MACHHUB Platform — requirements, what gets installed, the runtime services, and where to go for configuration and first login.
 sidebar:
   order: 1
 ---
 
-MACHHUB is **self-hosted**. The entire platform is the **MACHHUB EDGE** binary, which
-you run on a server close to your equipment — a cloud VM, an industrial PC, or a
-Raspberry Pi.
+MACHHUB is **self-hosted**. The entire product ships as a single binary — **MACHHUB
+Platform** — which you run on a server close to your equipment: a cloud VM, an
+industrial PC, or a Raspberry Pi.
 
 :::note[Heads up]
 This section documents installing and operating the server. If you only want to
@@ -18,7 +18,7 @@ This section documents installing and operating the server. If you only want to
 
 ## What you get
 
-A MACHHUB EDGE installation runs:
+A MACHHUB Platform installation runs:
 
 - the **`machhub`** binary (REST API + embedded MQTT broker + embedded NATS + static
   console), and
@@ -32,9 +32,9 @@ On a production Linux install these run as **`systemd`** services
 | | Recommendation |
 | --- | --- |
 | OS | Linux (production). ARM64 is supported (e.g. Raspberry Pi). |
-| Database | SurrealDB v2 (installed alongside EDGE). |
-| Ports | REST API (default `80`), MQTT broker (`1883` TCP) and MQTT-over-WebSocket, NATS (`4222`), SurrealDB RPC (`7018`, internal). |
-| Build (from source) | Go 1.22+ (the project builds with newer Go toolchains). |
+| Database | SurrealDB v2 (installed alongside the Platform). |
+| Ports | REST API (default `6188`), MQTT broker (`1883` TCP) and MQTT-over-WebSocket, NATS (`4222`), SurrealDB RPC (`7018`, internal). |
+| Build (from source) | Go 1.24+ (the project builds with newer Go toolchains). |
 
 The exact ports are configurable — see the [Configuration reference](/install/configuration/).
 
@@ -81,7 +81,7 @@ The exact one-liner is also wrapped in the repository's `scripts/dev/devRun.sh`.
   vars, ports, auth keys, storage, and CORS.
 - [First login & bootstrap](/install/first-login/) — the admin domain and your first
   user.
-- [Upgrades & backups](/install/upgrades-backups/) — updating EDGE and protecting your
+- [Upgrades & backups](/install/upgrades-backups/) — updating the Platform and protecting your
   data.
 
 Once your server is running, head to [Using the Console](/console/overview/) or the

@@ -1,15 +1,15 @@
 ---
 title: Architecture
-description: How MACHHUB EDGE is put together — the REST API, the embedded MQTT broker and NATS runtime, the SurrealDB store and Historian, the web console, the SDK, and the request lifecycle.
+description: How MACHHUB Platform is put together — the REST API, the embedded MQTT broker and NATS runtime, the SurrealDB store and Historian, the web console, the SDK, and the request lifecycle.
 sidebar:
   order: 1
 ---
 
-MACHHUB ships as **MACHHUB EDGE**: a single Go binary that runs the entire platform.
+MACHHUB ships as **MACHHUB Platform**: a single Go binary that runs the entire stack.
 Rather than wiring together a database, a message broker, a function runtime, and an
-API gateway yourself, EDGE bundles them and exposes one coherent surface.
+API gateway yourself, the Platform bundles them and exposes one coherent surface.
 
-## Components inside MACHHUB EDGE
+## Components inside MACHHUB Platform
 
 ```mermaid
 flowchart LR
@@ -44,7 +44,7 @@ flowchart LR
 [mochi-mqtt]: https://github.com/mochi-mqtt/server
 
 :::note[Edge-first]
-EDGE is designed to run *next to your equipment*. Production builds target Linux
+The Platform is designed to run *next to your equipment*. Production builds target Linux
 (including ARM64 / Raspberry Pi) and install as `systemd` services. See
 [Install & Self-Hosting](/install/overview/).
 :::
@@ -114,7 +114,7 @@ flowchart LR
     Dev["VS Code (MACHHUB Designer)"]
     Dev2["Node-RED (Flows)"]
   end
-  EDGE["MACHHUB EDGE"]
+  EDGE["MACHHUB Platform"]
   UI -- "REST + MQTT/WS" --> EDGE
   SDKApp -- "REST + MQTT" --> EDGE
   Dev -- "deploy processes / config" --> EDGE
