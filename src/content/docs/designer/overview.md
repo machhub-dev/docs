@@ -29,7 +29,7 @@ flowchart LR
   Dev["You, in VS Code"] --> Ext["MACHHUB Designer"]
   Ext -- "detects server + supplies config" --> SDK["sdk.Initialize()  (no args)"]
   Ext -- "author + deploy" --> Proc["Processes (Python / TypeScript)"]
-  SDK --> EDGE["MACHHUB EDGE"]
+  SDK --> EDGE["MACHHUB Platform"]
   Proc --> EDGE
 ```
 

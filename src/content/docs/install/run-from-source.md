@@ -1,11 +1,11 @@
 ---
 title: Run from source
-description: Build and run MACHHUB EDGE locally with Go for development, including a development SurrealDB.
+description: Build and run MACHHUB Platform locally with Go for development, including a development SurrealDB.
 sidebar:
   order: 3
 ---
 
-For development you can run the EDGE server directly from source with Go, pointing it
+For development you can run the Platform server directly from source with Go, pointing it
 at a development configuration.
 
 ## Prerequisites
@@ -32,7 +32,7 @@ console from the local `./static` directory, and logs at debug level.
 
 ## Start a development SurrealDB
 
-EDGE stores its data in SurrealDB. For local development, start a SurrealDB instance
+The Platform stores its data in SurrealDB. For local development, start a SurrealDB instance
 (the repository includes a helper, `scripts/dev/devStartDB.sh`) that listens on the
 RPC port the config expects (`ws://localhost:7018/rpc`).
 

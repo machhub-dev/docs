@@ -542,7 +542,7 @@ flowchart TB
     H["hooks.server.ts\ncookie guard"]
     A["form actions\nfetch REST API"]
   end
-  SDKpkg --> EDGE["MACHHUB EDGE"]
+  SDKpkg --> EDGE["MACHHUB Platform"]
   A -- "Authorization: Bearer" --> EDGE
 ```
 

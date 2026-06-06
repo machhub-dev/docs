@@ -515,7 +515,7 @@ flowchart LR
     F["fetch() REST API\n+ revalidatePath"]
     MW["middleware.ts\n(cookie check)"]
   end
-  SDKpkg --> EDGE["MACHHUB EDGE"]
+  SDKpkg --> EDGE["MACHHUB Platform"]
   F -- "Authorization: Bearer" --> EDGE
 ```
 

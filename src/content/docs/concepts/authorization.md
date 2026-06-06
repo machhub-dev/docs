@@ -80,5 +80,5 @@ use it sparingly. The `member` group name is also reserved.
 :::caution[Current build]
 Some routes have their permission checks disabled in the current build, and much of
 the `/machhub/*` data plane is unauthenticated. Verify enforcement for your deployment
-and keep EDGE behind appropriate network controls. See the [API overview](/api/overview/).
+and keep the Platform behind appropriate network controls. See the [API overview](/api/overview/).
 :::

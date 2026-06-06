@@ -90,13 +90,13 @@ rarely assemble them by hand.
 
 ## Security
 
-:::caution[Verify enforcement before exposing EDGE]
+:::caution[Verify enforcement before exposing the Platform]
 In the current build, much of the `/machhub/*` data plane is **unauthenticated** by
 default, and several `/api/*` permission checks are disabled in code (the
 authentication middleware is applied to `/api/*`, but a number of per-route
 permission gates are commented out). Until enforcement is fully enabled:
 
-- Put MACHHUB EDGE behind appropriate **network controls** (private network, reverse
+- Put MACHHUB Platform behind appropriate **network controls** (private network, reverse
   proxy, firewall, VPN) rather than exposing it directly to the internet.
 - **Verify the enforcement state** for your specific deployment before trusting any
   endpoint to be access-controlled.

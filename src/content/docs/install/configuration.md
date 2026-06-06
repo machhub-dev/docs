@@ -5,7 +5,7 @@ sidebar:
   order: 2
 ---
 
-MACHHUB EDGE is configured with a single YAML file, by default
+MACHHUB Platform is configured with a single YAML file, by default
 `/etc/machhub/.machhub.yaml`. Override the path with the `-c` / `--config` flag:
 
 ```bash

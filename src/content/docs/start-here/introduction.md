@@ -10,7 +10,7 @@ fabric*. It gives manufacturing and operations teams one place to **collect**,
 **model**, **store**, **automate**, and **serve** their data — and gives developers
 a type-safe SDK to build applications on top of it.
 
-The whole platform ships as **MACHHUB EDGE**: a single Go binary that runs close to
+The whole product ships as **MACHHUB Platform**: a single Go binary that runs close to
 your equipment (a cloud VM, an industrial PC, or a Raspberry Pi) and bundles
 everything you need.
 
@@ -50,7 +50,7 @@ write in code; **Flows** are *Node-RED* visual pipelines. See
 
 ```mermaid
 flowchart TB
-  subgraph EDGE["MACHHUB EDGE (single binary)"]
+  subgraph EDGE["MACHHUB Platform (single binary)"]
     API["REST API (GoFiber)"]
     MQTT["MQTT Broker (UNS / Tags)"]
     NATS["NATS runtime bus"]

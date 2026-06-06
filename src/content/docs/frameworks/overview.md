@@ -28,7 +28,7 @@ flowchart LR
   subgraph Server["Server (SSR / RSC / actions)"]
     REST["fetch() the MACHHUB REST API directly"]
   end
-  SDK -- "collections, tags, historian, ..." --> EDGE["MACHHUB EDGE"]
+  SDK -- "collections, tags, historian, ..." --> EDGE["MACHHUB Platform"]
   REST -- "Authorization: Bearer / Domain header" --> EDGE
 ```
 

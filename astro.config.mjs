@@ -16,7 +16,7 @@ export default defineConfig({
     starlight({
       title: 'MACHHUB Docs',
       description:
-        'Documentation for MACHHUB — the unified data fabric and Industrial IoT (IIoT) platform. Learn the concepts (Collections, Processes, Flows, Historian, Realtime/MQTT, UNS), install and configure MACHHUB EDGE, navigate the console, and build apps with the TypeScript SDK and the MACHHUB Designer.',
+        'Documentation for MACHHUB — the unified data fabric and Industrial IoT (IIoT) platform. Learn the concepts (Collections, Processes, Flows, Historian, Realtime/MQTT, UNS), install and configure MACHHUB Platform, navigate the console, and build apps with the TypeScript SDK and the MACHHUB Designer.',
       logo: {
         src: './src/assets/logo.svg',
         alt: 'MACHHUB',

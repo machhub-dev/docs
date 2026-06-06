@@ -391,7 +391,7 @@ flowchart TB
     AD["asyncData / useAsyncData"]:::bad
     SR["server/api/*\nuseRuntimeConfig().machhubDeveloperKey"]
   end
-  SDKpkg --> EDGE["MACHHUB EDGE"]
+  SDKpkg --> EDGE["MACHHUB Platform"]
   SR -- "fetch REST API\nAuthorization: Bearer" --> EDGE
   classDef bad stroke-dasharray: 5 5;
 ```

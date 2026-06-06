@@ -5,7 +5,7 @@ sidebar:
   order: 4
 ---
 
-After MACHHUB EDGE is running, you need a user account to sign in to the console.
+After MACHHUB Platform is running, you need a user account to sign in to the console.
 
 ## The admin domain
 
@@ -38,7 +38,7 @@ password, and at least one group.
 sequenceDiagram
   participant You
   participant Console
-  participant EDGE
+  participant EDGE as MACHHUB Platform
   You->>Console: open the console URL
   You->>Console: enter username + password
   Console->>EDGE: POST /auth/login
