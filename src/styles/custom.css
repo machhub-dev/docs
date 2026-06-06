@@ -18,6 +18,15 @@
   --sl-color-text-accent: #3b46b8;
 }
 
+/* MACHHUB wordmark in the header — Lato Black only for the text logo.
+   The brand is a black mark with white text on dark backgrounds; Starlight's
+   theme already renders the title white in dark mode and black in light mode. */
+.site-title {
+  font-family: 'Lato', var(--sl-font), sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
 /* Give Mermaid diagrams a little breathing room and center them. */
 .mermaid {
   display: flex;

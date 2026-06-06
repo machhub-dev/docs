@@ -14,14 +14,33 @@ export default defineConfig({
       autoTheme: true,
     }),
     starlight({
-      title: 'MACHHUB Docs',
+      title: 'MACHHUB',
       description:
         'Documentation for MACHHUB — the unified data fabric and Industrial IoT (IIoT) platform. Learn the concepts (Collections, Processes, Flows, Historian, Realtime/MQTT, UNS), install and configure MACHHUB Platform, navigate the console, and build apps with the TypeScript SDK and the MACHHUB Designer.',
       logo: {
-        src: './src/assets/logo.svg',
+        light: './src/assets/machhub-logo-light.svg',
+        dark: './src/assets/machhub-logo-dark.svg',
         alt: 'MACHHUB',
       },
       favicon: '/favicon.svg',
+      // Load Lato (Black / weight 900) for the MACHHUB wordmark in the header.
+      head: [
+        {
+          tag: 'link',
+          attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        },
+        {
+          tag: 'link',
+          attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        },
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap',
+          },
+        },
+      ],
       lastUpdated: true,
       customCss: ['./src/styles/custom.css'],
       social: [
