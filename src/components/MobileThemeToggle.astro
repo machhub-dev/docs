@@ -1,0 +1,121 @@
+---
+// Compact sun/moon theme toggle shown only in the mobile header bar, sitting just
+// left of the fixed hamburger menu button. On desktop it is hidden (the full
+// ThemeSelect dropdown is used instead). Reuses the same `starlight-theme`
+// localStorage key and StarlightThemeProvider as the dropdown.
+import { Icon } from '@astrojs/starlight/components';
+
+const label = Astro.locals.t('themeSelect.accessibleLabel');
+---
+
+<starlight-theme-toggle class="mh-theme-toggle md:sl-hidden print:hidden">
+  <button type="button" aria-label={label} title="Toggle light / dark theme">
+    <Icon name="sun" class="mh-tt-icon mh-tt-sun" />
+    <Icon name="moon" class="mh-tt-icon mh-tt-moon" />
+  </button>
+</starlight-theme-toggle>
+
+{/* Uses global scope from `ThemeProvider.astro`. */}
+<script is:inline>
+  StarlightThemeProvider.updatePickers();
+</script>
+
+<script>
+  type Theme = 'auto' | 'dark' | 'light';
+
+  const storageKey = 'starlight-theme';
+
+  const parseTheme = (t: unknown): Theme =>
+    t === 'auto' || t === 'dark' || t === 'light' ? t : 'auto';
+
+  const loadTheme = (): Theme =>
+    parseTheme(typeof localStorage !== 'undefined' && localStorage.getItem(storageKey));
+
+  function storeTheme(theme: Theme): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(storageKey, theme === 'light' || theme === 'dark' ? theme : '');
+    }
+  }
+
+  const getPreferred = (): 'light' | 'dark' =>
+    matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+  /** The theme actually showing right now (resolves `auto`). */
+  const resolved = (): 'light' | 'dark' => {
+    const t = loadTheme();
+    return t === 'auto' ? getPreferred() : t;
+  };
+
+  /** Reflect the current resolved theme on every toggle so the icon is correct. */
+  function syncIcons(): void {
+    const r = resolved();
+    document
+      .querySelectorAll('starlight-theme-toggle')
+      .forEach((el) => el.setAttribute('data-resolved', r));
+  }
+
+  function onThemeChange(theme: Theme): void {
+    StarlightThemeProvider.updatePickers(theme);
+    document.documentElement.dataset.theme = theme === 'auto' ? getPreferred() : theme;
+    storeTheme(theme);
+    syncIcons();
+  }
+
+  matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+    if (loadTheme() === 'auto') onThemeChange('auto');
+  });
+
+  class StarlightThemeToggle extends HTMLElement {
+    constructor() {
+      super();
+      syncIcons();
+      this.querySelector('button')?.addEventListener('click', () => {
+        // Flip between light and dark based on what's currently shown.
+        onThemeChange(resolved() === 'dark' ? 'light' : 'dark');
+      });
+    }
+  }
+
+  customElements.define('starlight-theme-toggle', StarlightThemeToggle);
+</script>
+
+<style>
+  /* Match the fixed hamburger button, positioned just to its left. */
+  .mh-theme-toggle button {
+    position: fixed;
+    top: calc((var(--sl-nav-height) - var(--sl-menu-button-size)) / 2);
+    inset-inline-end: calc(var(--sl-nav-pad-x) + var(--sl-menu-button-size) + 0.5rem);
+    z-index: var(--sl-z-index-navbar);
+    width: var(--sl-menu-button-size);
+    height: var(--sl-menu-button-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 50%;
+    background-color: var(--sl-color-white);
+    color: var(--sl-color-black);
+    box-shadow: var(--sl-shadow-md);
+    cursor: pointer;
+  }
+
+  :global([data-theme='light']) .mh-theme-toggle button {
+    background-color: var(--sl-color-black);
+    color: var(--sl-color-white);
+  }
+
+  .mh-tt-icon {
+    font-size: 1.1rem;
+    display: none;
+  }
+
+  /* In dark mode show the sun (tap → light); in light mode show the moon. */
+  .mh-theme-toggle[data-resolved='dark'] .mh-tt-sun {
+    display: block;
+  }
+
+  .mh-theme-toggle[data-resolved='light'] .mh-tt-moon {
+    display: block;
+  }
+</style>
