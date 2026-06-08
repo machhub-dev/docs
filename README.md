@@ -68,4 +68,4 @@ Run `npm run build` before opening a PR to confirm the site builds and links res
 
 ## License
 
-© MACHHUB®. All rights reserved.
+Released under the [MIT License](LICENSE). © 2026 machhub.dev.
